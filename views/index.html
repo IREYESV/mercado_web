@@ -1,0 +1,80 @@
+{% from 'macrofruta.html'  import macro_fruta %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <title>Mercado Web</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="carrito.jpg" alt=""width="30"height="24"style="background-color:green">
+            </a>
+        </div>
+    </nav>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>Bienvenido al Mercado Web, Seleccione sus productos!</h1>
+    <div class="container">
+        <div class="row">
+            {% for fruta in frutas %}
+                {{macro_fruta(fruta)}}
+            {% endfor %}
+        </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+        
+<script >
+    const carrito=[]
+
+    $('.imagen').click(function () {
+        let imgsrc = $(this).attr('src');
+        carrito.push(imgsrc);
+        console.log('carrito', carrito);
+    });
+
+    function myfunction(){
+    //  const fruta_seleccionada=document.getElementById("frutasModal");
+        const fruta_seleccionada=document.getElementById("frutasModal").innerHTML="<img src=banana.png>"
+    }
+</script>
+</body>
+</html>
+
+
+
+    
